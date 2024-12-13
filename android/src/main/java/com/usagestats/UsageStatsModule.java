@@ -1,32 +1,50 @@
 package com.usagestats;
 
-import androidx.annotation.NonNull;
+import android.app.AppOpsManager;
+import android.content.Context;
+import android.content.Intent;
+import android.os.Process;
+import android.provider.Settings;
 
-import com.facebook.react.bridge.Promise;
 import com.facebook.react.bridge.ReactApplicationContext;
 import com.facebook.react.bridge.ReactContextBaseJavaModule;
 import com.facebook.react.bridge.ReactMethod;
-import com.facebook.react.module.annotations.ReactModule;
+import com.facebook.react.bridge.Promise;
 
-@ReactModule(name = UsageStatsModule.NAME)
 public class UsageStatsModule extends ReactContextBaseJavaModule {
-  public static final String NAME = "UsageStats";
 
-  public UsageStatsModule(ReactApplicationContext reactContext) {
-    super(reactContext);
-  }
+    private final ReactApplicationContext reactContext;
 
-  @Override
-  @NonNull
-  public String getName() {
-    return NAME;
-  }
+    public UsageStatsModule(ReactApplicationContext reactContext) {
+        super(reactContext);
+        this.reactContext = reactContext;
+    }
 
+    @Override
+    public String getName() {
+        return "UsageStatsModule";
+    }
 
-  // Example method
-  // See https://reactnative.dev/docs/native-modules-android
-  @ReactMethod
-  public void multiply(double a, double b, Promise promise) {
-    promise.resolve(a * b);
-  }
+    @ReactMethod
+    public void hasUsageStatsPermission(Promise promise) {
+        AppOpsManager appOps = (AppOpsManager) reactContext.getSystemService(Context.APP_OPS_SERVICE);
+        int mode = appOps.checkOpNoThrow(AppOpsManager.OPSTR_GET_USAGE_STATS, 
+                                         Process.myUid(), reactContext.getPackageName());
+        promise.resolve(mode == AppOpsManager.MODE_ALLOWED);
+    }
+
+    @ReactMethod
+    public void requestUsageStatsPermission() {
+        Intent intent = new Intent(Settings.ACTION_USAGE_ACCESS_SETTINGS);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        reactContext.startActivity(intent);
+    }
+
+    @ReactMethod
+    public void checkUsageStatsPermission(Promise promise) {
+        AppOpsManager appOps = (AppOpsManager) reactContext.getSystemService(Context.APP_OPS_SERVICE);
+        int mode = appOps.checkOpNoThrow(AppOpsManager.OPSTR_GET_USAGE_STATS, 
+                                         Process.myUid(), reactContext.getPackageName());
+        promise.resolve(mode == AppOpsManager.MODE_ALLOWED);
+    }
 }

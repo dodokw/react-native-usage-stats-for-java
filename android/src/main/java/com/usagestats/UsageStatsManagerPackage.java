@@ -9,16 +9,16 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-public class UsageStatsPackage implements ReactPackage {
-    @Override
-    public List<ViewManager> createViewManagers(ReactApplicationContext reactContext) {
-        return Collections.emptyList();
-    }
-
+public class UsageStatsManagerPackage implements ReactPackage {
     @Override
     public List<NativeModule> createNativeModules(ReactApplicationContext reactContext) {
         List<NativeModule> modules = new ArrayList<>();
-        modules.add(new UsageStatsModule(reactContext));
+        modules.add(new UsageStatsManagerModule(reactContext));
         return modules;
+    }
+
+    @Override
+    public List<ViewManager> createViewManagers(ReactApplicationContext reactContext) {
+        return Collections.emptyList();
     }
 }
