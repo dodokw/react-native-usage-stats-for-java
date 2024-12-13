@@ -6,8 +6,9 @@ const LINKING_ERROR =
   '- You rebuilt the app after installing the package\n' +
   '- You are not using Expo Go\n';
 
-const UsageStats = NativeModules.UsageStats
-  ? NativeModules.UsageStats
+
+  const UsageStatsModule = NativeModules.UsageStatsModule
+  ? NativeModules.UsageStatsModule
   : new Proxy(
       {},
       {
@@ -16,6 +17,18 @@ const UsageStats = NativeModules.UsageStats
         },
       }
     );
+
+  const UsageStatsManager = NativeModules.UsageStatsManager
+  ? NativeModules.UsageStatsManager
+  : new Proxy(
+      {},
+      {
+        get() {
+          throw new Error(LINKING_ERROR);
+        },
+      }
+    );
+
 
 export type UsageStatsModuleProps = {
   requestUsageStatsPermission: () => Promise<void>; // 권한 요청
@@ -40,17 +53,17 @@ export type queryUsageStatsProps = {
   isSystem: boolean; // 시스템 앱 여부 (true: 시스템 앱, false: 사용자 앱)
 };
 
-export const UsageStatsModule: UsageStatsModuleProps = {
+export const UsageStats: UsageStatsModuleProps = {
   requestUsageStatsPermission: async () => {
-    return UsageStats.requestUsageStatsPermission();
+    return UsageStatsModule.requestUsageStatsPermission();
   },
   hasUsageStatsPermission: async () => {
-    return UsageStats.hasUsageStatsPermission();
+    return UsageStatsModule.hasUsageStatsPermission();
   },
 };
 
-export const UsageStatsManager: usageStatsManagerProps = {
+export const UsageStatsManage: usageStatsManagerProps = {
   queryUsageStats: async (intervalType, beginTime, endTime) => {
-    return UsageStats.queryUsageStats(intervalType, beginTime, endTime);
+    return UsageStatsManager.queryUsageStats(intervalType, beginTime, endTime);
   },
 };
