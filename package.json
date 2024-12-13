@@ -1,6 +1,6 @@
 {
   "name": "react-native-usage-stats-for-java",
-  "version": "0.1.1",
+  "version": "0.1.3",
   "description": "react-native-usage-stats-for-java",
   "source": "./src/index.tsx",
   "main": "./lib/commonjs/index.js",
