@@ -2,7 +2,7 @@
   "compilerOptions": {
     "rootDir": ".",
     "paths": {
-      "react-native-usage-stats": ["./src/index"]
+      "react-native-usage-stats-for-java": ["./src/index"]
     },
     "allowUnreachableCode": false,
     "allowUnusedLabels": false,

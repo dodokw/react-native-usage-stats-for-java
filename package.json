@@ -1,6 +1,6 @@
 {
   "name": "react-native-usage-stats-for-java",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "react-native-usage-stats-for-java",
   "source": "./src/index.tsx",
   "main": "./lib/commonjs/index.js",
@@ -32,7 +32,7 @@
     "!**/.*"
   ],
   "scripts": {
-    "example": "yarn workspace react-native-usage-stats-example",
+    "example": "yarn workspace react-native-usage-stats-for-java-example",
     "test": "jest",
     "typecheck": "tsc --noEmit",
     "lint": "eslint \"**/*.{js,ts,tsx}\"",
@@ -47,14 +47,14 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/dodokw/react-native-usage-stats.git"
+    "url": "git+https://github.com/dodokw/react-native-usage-stats-for-java.git"
   },
   "author": "dodokw <dodokw@naver.com> (https://github.com/dodokw)",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/dodokw/react-native-usage-stats/issues"
+    "url": "https://github.com/dodokw/react-native-usage-stats-for-java/issues"
   },
-  "homepage": "https://github.com/dodokw/react-native-usage-stats#readme",
+  "homepage": "https://github.com/dodokw/react-native-usage-stats-for-java#readme",
   "publishConfig": {
     "registry": "https://registry.npmjs.org/"
   },

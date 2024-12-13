@@ -11144,9 +11144,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-native-usage-stats-example@workspace:example":
+"react-native-usage-stats-for-java-example@workspace:example":
   version: 0.0.0-use.local
-  resolution: "react-native-usage-stats-example@workspace:example"
+  resolution: "react-native-usage-stats-for-java-example@workspace:example"
   dependencies:
     "@babel/core": ^7.25.2
     "@babel/preset-env": ^7.25.3
@@ -11165,9 +11165,9 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"react-native-usage-stats@workspace:.":
+"react-native-usage-stats-for-java@workspace:.":
   version: 0.0.0-use.local
-  resolution: "react-native-usage-stats@workspace:."
+  resolution: "react-native-usage-stats-for-java@workspace:."
   dependencies:
     "@commitlint/config-conventional": ^17.0.2
     "@evilmartians/lefthook": ^1.5.0
