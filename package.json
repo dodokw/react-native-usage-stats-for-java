@@ -1,6 +1,6 @@
 {
   "name": "react-native-usage-stats-for-java",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "description": "react-native-usage-stats-for-java",
   "source": "./src/index.tsx",
   "main": "./lib/commonjs/index.js",
@@ -16,6 +16,7 @@
   "files": [
     "src",
     "lib",
+    "react-native.config.js",
     "android",
     "ios",
     "cpp",
@@ -131,11 +132,7 @@
       "prettier/prettier": [
         "error",
         {
-          "quoteProps": "consistent",
-          "singleQuote": true,
-          "tabWidth": 2,
-          "trailingComma": "es5",
-          "useTabs": false
+          "endOfLine": "auto"
         }
       ]
     }

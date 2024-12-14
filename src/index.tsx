@@ -1,4 +1,4 @@
-import { NativeModules, Platform } from 'react-native';
+import { NativeModules } from 'react-native';
 
 const LINKING_ERROR =
   `The package 'react-native-usage-stats-for-java' doesn't seem to be linked. Make sure: \n\n` +
@@ -6,8 +6,7 @@ const LINKING_ERROR =
   '- You rebuilt the app after installing the package\n' +
   '- You are not using Expo Go\n';
 
-
-  const UsageStatsModule = NativeModules.Usagestats
+const UsageStatsModule = NativeModules.Usagestats
   ? NativeModules.Usagestats
   : new Proxy(
       {},
@@ -18,7 +17,7 @@ const LINKING_ERROR =
       }
     );
 
-  const UsageStatsManager = NativeModules.UsageStatsManagerModule
+const UsageStatsManager = NativeModules.UsageStatsManagerModule
   ? NativeModules.UsageStatsManagerModule
   : new Proxy(
       {},
@@ -28,7 +27,6 @@ const LINKING_ERROR =
         },
       }
     );
-
 
 export type UsageStatsModuleProps = {
   requestUsageStatsPermission: () => Promise<void>; // 권한 요청

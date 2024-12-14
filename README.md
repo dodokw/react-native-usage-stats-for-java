@@ -52,7 +52,7 @@ const getUsageStats = () => {
   const endMilliseconds = now;
 
   UsageStatsManagerModule.queryUsageStats(
-    4, // 기간: 4일
+    4, // best is 4
     startMilliseconds,
     endMilliseconds
   ).then((res) => {
