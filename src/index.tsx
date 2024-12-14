@@ -2,13 +2,13 @@ import { NativeModules, Platform } from 'react-native';
 
 const LINKING_ERROR =
   `The package 'react-native-usage-stats-for-java' doesn't seem to be linked. Make sure: \n\n` +
-  Platform.select({ ios: "- You have run 'pod install'\n", default: '' }) +
+  // Platform.select({ ios: "- You have run 'pod install'\n", default: '' }) +
   '- You rebuilt the app after installing the package\n' +
   '- You are not using Expo Go\n';
 
 
-  const UsageStatsModule = NativeModules.UsageStatsModule
-  ? NativeModules.UsageStatsModule
+  const UsageStatsModule = NativeModules.Usagestats
+  ? NativeModules.Usagestats
   : new Proxy(
       {},
       {
@@ -18,8 +18,8 @@ const LINKING_ERROR =
       }
     );
 
-  const UsageStatsManager = NativeModules.UsageStatsManager
-  ? NativeModules.UsageStatsManager
+  const UsageStatsManager = NativeModules.UsageStatsManagerModule
+  ? NativeModules.UsageStatsManagerModule
   : new Proxy(
       {},
       {

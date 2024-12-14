@@ -11,6 +11,13 @@ npm install react-native-usage-stats-for-java
 yarn add react-native-usage-stats-for-java
 ```
 
+## 권한 추가
+AndroidManifest.xml
+
+```xml
+<uses-permission android:name="android.permission.PACKAGE_USAGE_STATS" />
+```
+
 ## Usage
 
 권한 확인 및 요청

@@ -22,7 +22,7 @@ public class UsageStatsModule extends ReactContextBaseJavaModule {
 
     @Override
     public String getName() {
-        return "UsageStatsModule";
+        return "Usagestats";
     }
 
     @ReactMethod
